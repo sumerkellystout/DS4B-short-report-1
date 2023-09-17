@@ -1,0 +1,35 @@
+---
+title: "Part 2: Frog Species"
+author: "Sumer Kelly-Stout, U6958079"
+date: "17/09/2023"
+output:  
+    html_document:
+        toc: true
+        toc_depth: 4
+        theme: cosmo
+        number_sections: false
+        toc_float: true
+        highlight: pygments
+        fig_width: 8
+        fig_height: 4
+---
+
+# **Task 1**: Loading the data
+
+# **Task 2**: Overview Plots
+
+### **Task 2.1** Overview Plot 1.0
+
+### **Task 2.2**: Overview Plot 2.0
+
+### **Task 2.3**: The Final Overview Plot
+
+### **Challenge Task**
+
+# **Task 3**: Comparing flowcells
+
+# **Task 4**: Are the flowcells faulty?
+
+### **Task 4.1**: Connecting the dots
+
+### **Task 4.2**: Showing the raw data
