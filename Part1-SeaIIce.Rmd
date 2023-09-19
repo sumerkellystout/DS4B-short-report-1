@@ -1,29 +1,60 @@
 ---
-title: 'Part 1: Sea ICe'
-output: html_document
-date: "2023-09-17"
+title: "Part 1: Sea Ic"
+author: "Sumer Kelly-Stout, U6958079"
+date: "17/09/2023"
+output:  
+    html_document:
+        toc: true
+        toc_depth: 4
+        theme: cosmo
+        number_sections: false
+        toc_float: true
+        highlight: pygments
+        fig_width: 8
+        fig_height: 4
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# **Task 1**: Loading the data
+```{r}
+install.packages("tidyverse")
+install.packages("janitor")
+library(tidyverse)
+library(ggplot2)
+library(skimr)
+library(dplyr)
+library(janitor)
+
+seaice <- S_seaice_extent_daily_v3_0_1_
+skim(seaice)
 ```
 
-## R Markdown
+Cleaning the data 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+clean <- clean_names(seaice)
+colnames(clean)
+tabyl(clean, month)
+clean %>% tabyl(month) %>% adorn_pct_formatting(digits = 2, affix_sign = TRUE)
+clean_x<-clean %>% remove_empty(whic=c("rows"))
+clean_x<-clean %>% remove_empty(whic=c("cols"))
+```
+# **Task 2**: Overview Plots
+```{r}
+ggplot(seaice, aes(x = Extent, y = Month))+ geom_point(size=0.01, alpha=0.05)
 ```
 
-## Including Plots
+### **Task 2.1** Overview Plot 1.0
 
-You can also embed plots, for example:
+### **Task 2.2**: Overview Plot 2.0
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+### **Task 2.3**: The Final Overview Plot
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### **Challenge Task**
+
+# **Task 3**: Comparing flowcells
+
+# **Task 4**: Are the flowcells faulty?
+
+### **Task 4.1**: Connecting the dots
+
+### **Task 4.2**: Showing the raw data
